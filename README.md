@@ -63,6 +63,6 @@ Order totals are calculated on the backend from current food and restaurant reco
 
 ## Deploy to Vercel
 
-Deploy `frontend/` and `backend/` as separate Vercel projects. The frontend project root is `frontend`; its `vercel.json` rewrites SPA paths to `index.html`. Set `VITE_API_URL` to the deployed backend URL plus `/api`, for example `https://your-api.vercel.app/api`.
+Deploy the repository root (`.`) as the frontend Vercel project. The root `vercel.json` installs dependencies from `frontend/`, runs that app's build script, publishes `frontend/dist`, and rewrites SPA paths to `index.html`. Set `VITE_API_URL` to the deployed backend URL plus `/api`, for example `https://your-api.vercel.app/api`.
 
 Set the backend project root to `backend`. Vercel detects the Express application in `server.js`. Configure `MONGO_URI` with a remotely reachable MongoDB connection string, `JWT_SECRET` with a long random secret, and `CLIENT_URL` with the deployed frontend origin. `mongodb://localhost:27017/foodhub` is for local development only and cannot be reached by a Vercel deployment.
